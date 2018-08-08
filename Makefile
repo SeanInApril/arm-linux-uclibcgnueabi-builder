@@ -70,8 +70,6 @@ FILE_DIR_EXIST=$(filter %$(1), $(shell echo $(2)/*))
 
 all: show-info setup-dir setup-dl setup-uzp build-bin build-cc1 build-hdr build-lib build-cc2 build-gdb build-lnk build-pac
 #	@echo "start all!"
-#	make setup-pkg
-#	make setup-env
 #	make show-info
 
 #	make setup-dir
@@ -167,7 +165,7 @@ setup-dl:
 	wget ${DLFLAGS} -O ${_TOP_DIR_}/package/gcc-${_GCC_VER_}.tar.xz      ${SW_DL_URL}/gnu/gcc/gcc-${_GCC_VER_}/gcc-${_GCC_VER_}.tar.xz
 	wget ${DLFLAGS} -O ${_TOP_DIR_}/package/gdb-${_GDB_VER_}.tar.xz      ${SW_DL_URL}/gnu/gdb/gdb-${_GDB_VER_}.tar.xz
 
-	wget ${DLFLAGS} -O ${_TOP_DIR_}/package/uClibc-ng-${_LIB_VER_}.tar.xz    https://downloads.uclibc-ng.org/release/${_LIB_VER_}/uClibc-ng-${_LIB_VER_}.tar.xz
+	wget ${DLFLAGS} -O ${_TOP_DIR_}/package/uClibc-ng-${_LIB_VER_}.tar.xz    https://downloads.uclibc-ng.org/releases/${_LIB_VER_}/uClibc-ng-${_LIB_VER_}.tar.xz
 
 	wget ${DLFLAGS} -O ${_TOP_DIR_}/package/linux-${_KNL_VER_}.tar.xz    ${SW_DL_URL}/kernel/$(_MID_DIR_)/linux-${_KNL_VER_}.tar.xz
 	@echo "download src end"
