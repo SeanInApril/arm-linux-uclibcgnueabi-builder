@@ -241,7 +241,7 @@ build-lib:
 #	cp -f ${_TOP_DIR_}/Makefile ${PRJROOT}/bld/${GLIBC_VERSION}/Makefile.inn
 #	make -C ${PRJROOT}/bld/${GLIBC_VERSION} -f Makefile.inn build-lib-inner _PRJROOT_INN_=${PRJROOT} _PREFIX_INN_=${PREFIX}
 	make -C ${PRJROOT}/src/${UCLIBC_VERSION} menuconfig
-	make install
+	make -C ${PRJROOT}/src/${UCLIBC_VERSION} install
 	@echo "build lib end"
 
 #_LIB_INNER_FLAGS_ := CC=${_PREFIX_INN_}/bin/${TARGET}-gcc CXX=${_PREFIX_INN_}/bin/${TARGET}-g++ AR=${_PREFIX_INN_}/bin/${TARGET}-ar AS=${_PREFIX_INN_}/bin/${TARGET}-as RANLIB=${_PREFIX_INN_}/bin/${TARGET}-ranlib  READELF=${_PREFIX_INN_}/bin/${TARGET}-readelf NM=${_PREFIX_INN_}/bin/${TARGET}-nm
