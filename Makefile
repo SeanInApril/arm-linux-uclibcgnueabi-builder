@@ -240,7 +240,7 @@ build-lib:
 	@echo "build lib..."
 #	make -C ${PRJROOT}/src/${UCLIBC_VERSION} menuconfig
 	cp -f ${_TOP_DIR_}/config/.config ${PRJROOT}/src/${UCLIBC_VERSION}/
-	make -C ${PRJROOT}/src/${UCLIBC_VERSION} CROSS_COMPILER_PREFIX=${PREFIX}/bin/${TARGET}- KERNEL_HEADERS=${TARGET_PREFIX}/include RUNTIME_PREFIX=${PREFIX}/ DEVEL_PREFIX=${TARGET_PREFIX}/ install 2>&1 |tee ${PRJROOT}/src/${UCLIBC_VERSION}/make-install.out
+	make -C ${PRJROOT}/src/${UCLIBC_VERSION} CROSS_COMPILER_PREFIX=${PREFIX}/bin/${TARGET}- KERNEL_HEADERS=${TARGET_PREFIX}/include RUNTIME_PREFIX=${PREFIX}/ DEVEL_PREFIX=${TARGET_PREFIX}/ install 2>&1 |tee ${PRJROOT}/bld/${UCLIBC_VERSION}/make-install.out
 	@echo "build lib end"
 
 #######################################################
