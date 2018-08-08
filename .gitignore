@@ -1,0 +1,5 @@
+*.out
+/build/*
+/gnutools/*
+/package/*
+/target/*
