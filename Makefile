@@ -238,19 +238,10 @@ endif
 #######################################################
 build-lib:
 	@echo "build lib..."
-#	cp -f ${_TOP_DIR_}/Makefile ${PRJROOT}/bld/${GLIBC_VERSION}/Makefile.inn
-#	make -C ${PRJROOT}/bld/${GLIBC_VERSION} -f Makefile.inn build-lib-inner _PRJROOT_INN_=${PRJROOT} _PREFIX_INN_=${PREFIX}
-	make -C ${PRJROOT}/src/${UCLIBC_VERSION} menuconfig
-	make -C ${PRJROOT}/src/${UCLIBC_VERSION} install
+#	make -C ${PRJROOT}/src/${UCLIBC_VERSION} menuconfig
+	cp -f ${_TOP_DIR_}/config/.config ${PRJROOT}/src/${UCLIBC_VERSION}/
+	make -C ${PRJROOT}/src/${UCLIBC_VERSION} CROSS_COMPILER_PREFIX=${PREFIX}/bin/${TARGET}- KERNEL_HEADERS=${TARGET_PREFIX}/include RUNTIME_PREFIX=${PREFIX}/ DEVEL_PREFIX=${TARGET_PREFIX}/ install 2>&1 |tee make-install.out
 	@echo "build lib end"
-
-#_LIB_INNER_FLAGS_ := CC=${_PREFIX_INN_}/bin/${TARGET}-gcc CXX=${_PREFIX_INN_}/bin/${TARGET}-g++ AR=${_PREFIX_INN_}/bin/${TARGET}-ar AS=${_PREFIX_INN_}/bin/${TARGET}-as RANLIB=${_PREFIX_INN_}/bin/${TARGET}-ranlib  READELF=${_PREFIX_INN_}/bin/${TARGET}-readelf NM=${_PREFIX_INN_}/bin/${TARGET}-nm
-
-#build-lib-inner:
-#ifeq ($(call FILE_DIR_EXIST,Makefile,${_PRJROOT_INN_}/bld/${GLIBC_VERSION}),)
-#	${_PRJROOT_INN_}/src/${GLIBC_VERSION}/configure ${_LIB_INNER_FLAGS_} --host=${TARGET} --prefix=${_PREFIX_INN_}/${TARGET} --with-tls --disable-profile --enable-add-ons --with-headers=${_PREFIX_INN_}/${TARGET}/include libc_cv_forced_unwind=yes libc_cv_c_cleanup=yes libc_cv_arm_tls=yes ${_OPTIONS_} 2>&1 |tee configure.out
-#endif
-#	make ${_LIB_INNER_FLAGS} -w all install 2>&1 |tee make.out
 
 #######################################################
 # build-cc2 - gcc-pass2                               #
