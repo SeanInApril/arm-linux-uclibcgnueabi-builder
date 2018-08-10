@@ -311,13 +311,14 @@ build-pac:
 	@echo "build tarball here"
 
 	@echo "save versions"
-	@echo ${BINUTILS_VERSION} >  ${PREFIX}/versions.txt
-	@echo ${GCC_VERSION}      >> ${PREFIX}/versions.txt
-	@echo ${UCLIBC_VERSION}   >> ${PREFIX}/versions.txt
-	@echo ${GDB_VERSION}      >> ${PREFIX}/versions.txt
-	@echo ${KERNEL_VERSION}   >> ${PREFIX}/versions.txt
+	@echo ${BINUTILS_VERSION}        >  ${PREFIX}/versions.txt
+	@echo ${GCC_VERSION}             >> ${PREFIX}/versions.txt
+	@echo ${UCLIBC_VERSION}          >> ${PREFIX}/versions.txt
+	@echo ${GDB_VERSION}             >> ${PREFIX}/versions.txt
+	@echo ${KERNEL_VERSION}          >> ${PREFIX}/versions.txt
+	@echo "platform: "$$(uname -msr) >> ${PREFIX}/versions.txt
 
-	tar -zcvf ${_TOP_DIR_}/target/${TARGET}-toolchain-${_GCC_VER_}-$$(date +%Y%m%d%H%M%S).tar.gz -C ${PREFIX_PARENT} ${TARGET}-${_GCC_VER_}
+	tar -zcvf ${_TOP_DIR_}/target/${TARGET}-toolchain-${_GCC_VER_}-$$(uname -s)-$$(date +%Y%m%d%H%M%S).tar.gz -C ${PREFIX_PARENT} ${TARGET}-${_GCC_VER_}
 	@echo "build tarball end"
 
 test-tool:
