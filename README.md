@@ -25,7 +25,7 @@
 #   gperf bison flex texinfo help2man gawk aria2 \    #
 #   autoconf automake libtool libtool-bin        \    #
 #   patch tree curl wget bc                      \    #
-#   g++                                          \    #
+#   g++ build-essential                          \    #
 #   libncurses5-dev libiberty-dev                \    #
 #   libgmp-dev libmpc-dev libmpfr-dev libisl-dev      #
 #                                                     #
